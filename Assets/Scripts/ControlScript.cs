@@ -40,7 +40,6 @@ public class ControlScript : MonoBehaviour
                 }
                 if (hit.collider.gameObject.layer == 6) //the ray hit a control (Layer 6 = Control)
                 {
-                    Debug.Log("HEllo");
                     IControllable target_control = hit.collider.gameObject.GetComponent<IControllable>(); //get corresponding class
 
                     List<KeyCode> current_inputs = new List<KeyCode>(); //gets all inputted keys

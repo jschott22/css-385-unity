@@ -27,6 +27,11 @@ public class CameraMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void setPrevPos(Vector2 pos)
+    {
+        prevPos = pos;
+    }
+
     private void Update()
     {
         //handle pause/unpause
