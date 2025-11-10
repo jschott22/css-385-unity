@@ -1,13 +1,11 @@
 /* 
 ControlScript.cs
 By: Jake Schott
-/* 
-ControlScript.cs
-By: Jake Schott
 */
 
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class ControlScript : MonoBehaviour
 {
@@ -50,6 +48,14 @@ public class ControlScript : MonoBehaviour
                     if (UnityEngine.Input.GetKey(KeyCode.E))
                     {
                         current_inputs.Add(KeyCode.E);
+                    }
+                    if (hit.collider.gameObject.name == "ITCollider")
+                    {
+                        control_info.transform.GetChild(1).GetComponent<TMP_Text>().SetText("IMPULSE THROTTLE");
+                    }
+                    else
+                    {
+                        control_info.transform.GetChild(1).GetComponent<TMP_Text>().SetText("COURSE HEADING");
                     }
                     control_info.SetActive(true); //show UI indicator
                     target_control.handleInputs(current_inputs); //call when all inputs have been checked

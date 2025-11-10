@@ -1,1 +1,1 @@
-{"current_scenario":24,"current_position":{"x":2.0,"y":1.5,"z":-1.2000000476837159},"current_rotation":{"x":279.7498474121094,"y":12.899996757507325}}
+{"current_scenario":1,"current_position":{"x":0.30000001192092898,"y":0.0,"z":0.20000000298023225},"current_rotation":{"x":285.49993896484377,"y":11.30002212524414}}

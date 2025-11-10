@@ -47,7 +47,7 @@ public class GameInfo : MonoBehaviour
 
         player.transform.GetComponent<CameraMove>().setPrevPos(player_rotation);
 
-        player.transform.position = player_position;
+        player.transform.localPosition = player_position;
         player.transform.rotation = Quaternion.Euler(0.0f, player_rotation.y, 0.0f);
         player.transform.GetChild(0).rotation = Quaternion.Euler(player_rotation.x, 0.0f, 0.0f);
     }
@@ -66,7 +66,7 @@ public class GameInfo : MonoBehaviour
 
     private void Update()
     {
-        Vector3 curr_pos = player.transform.position;
+        Vector3 curr_pos = player.transform.localPosition;
         curr_pos.x = Mathf.Round(curr_pos.x * 10.0f) / 10.0f;
         curr_pos.y = Mathf.Round(curr_pos.y * 10.0f) / 10.0f;
         curr_pos.z = Mathf.Round(curr_pos.z * 10.0f) / 10.0f;

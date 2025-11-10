@@ -6,6 +6,7 @@ By: Jake Schott
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SplashScreen : MonoBehaviour
     public TMP_Text title;
     public TMP_Text title_shadow;
     public TMP_Text any_button;
+
+    private bool loaded = false;
 
     private void Start()
     {
@@ -50,6 +53,15 @@ public class SplashScreen : MonoBehaviour
             anim_time = Mathf.Max(0.0f, anim_time - Time.deltaTime);
             any_button.color = new Color(1.0f, 1.0f, 1.0f, 1.0f - anim_time);
             yield return null;
+        }
+        loaded = true;
+    }
+
+    private void Update()
+    {
+        if (Input.anyKey && loaded == true)
+        {
+            SceneManager.LoadScene("TestEnvironment");
         }
     }
 }

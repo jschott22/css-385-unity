@@ -20,7 +20,6 @@ public class PlayerMove : MonoBehaviour
     {
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.y = Input.GetAxis("Vertical");
-        Debug.DrawLine(transform.position, transform.position + transform.forward * 1.25f);
         if (moveDir.magnitude > 1)
         {
             moveDir.Normalize();
@@ -28,7 +27,7 @@ public class PlayerMove : MonoBehaviour
         Move();
 
         //teleport back if you fall
-        if (transform.localPosition.y < -10)
+        if (transform.position.y < -10)
         {
             transform.localPosition = Vector3.zero;
             playerRB.linearVelocity = Vector3.zero;
@@ -39,7 +38,7 @@ public class PlayerMove : MonoBehaviour
     {
         Vector3 movement; //= Vector3.zero;
         movement = transform.TransformDirection(new Vector3(moveDir.x, 0, moveDir.y)) * MOVE_SPEED * Time.deltaTime;
-        transform.position += movement;
+        transform.localPosition += movement;
 
         if (moveDir == Vector2.zero)
         {

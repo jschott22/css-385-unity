@@ -15,7 +15,7 @@ public class ImpulseThrottle : MonoBehaviour, IControllable
 
     private float impulse = 0.0f;
     private Vector3 initial_pos; //handle starting position (0% impulse)
-    private Vector3 final_pos = new Vector3(1.1747f, 0.4806f, 18.7271f);
+    private Vector3 final_pos = new Vector3(1.1831f, -1.0405f, 20.2876f);
 
     private void Start()
     {
@@ -28,6 +28,11 @@ public class ImpulseThrottle : MonoBehaviour, IControllable
             new Vector3(Mathf.Lerp(initial_pos.x, final_pos.x, impulse),
                         Mathf.Lerp(initial_pos.y, final_pos.y, impulse),
                         Mathf.Lerp(initial_pos.z, final_pos.z, impulse));
+    }
+
+    public float getCurrentImpulse()
+    {
+        return impulse;
     }
 
     public void handleInputs(List<KeyCode> inputs)
