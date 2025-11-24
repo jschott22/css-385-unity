@@ -4,6 +4,7 @@ By: Jake Schott
 */
 
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PilotingSystem : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PilotingSystem : MonoBehaviour
     public CourseHeading courseHeading;
     public Transform endBeacon;
     public GameObject scenarioComplete;
+    public VideoPlayer endVideo;
+    public AudioSource endAudio;
 
     [Header("Speed Settings")]
     private float maxImpulseForwardSpeed = 50f;
@@ -32,6 +35,7 @@ public class PilotingSystem : MonoBehaviour
     public Vector3 currentVelocity;
 
     public float currentImpulseSpeed = 0f;
+    private bool reachedEndpoint = false;
 
     public void UpdateInput()
     {
@@ -102,7 +106,13 @@ public class PilotingSystem : MonoBehaviour
         UpdateMovement();
         if (Vector3.Distance(endBeacon.position, transform.position) < 25f)
         {
-            scenarioComplete.gameObject.SetActive(true);
+            if (reachedEndpoint == false)
+            {
+                reachedEndpoint = true;
+                scenarioComplete.gameObject.SetActive(true);
+                endVideo.Play();
+                endAudio.Play();
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ public class ImpulseThrottle : MonoBehaviour, IControllable
     private static float MOVE_SPEED = 35.0f;
 
     public GameObject handle;
+    public AudioSource ship_sound;
 
     private float impulse = 0.0f;
     private Vector3 initial_pos; //handle starting position (0% impulse)
@@ -28,6 +29,9 @@ public class ImpulseThrottle : MonoBehaviour, IControllable
             new Vector3(Mathf.Lerp(initial_pos.x, final_pos.x, impulse),
                         Mathf.Lerp(initial_pos.y, final_pos.y, impulse),
                         Mathf.Lerp(initial_pos.z, final_pos.z, impulse));
+
+        //update sound
+        ship_sound.volume = impulse;
     }
 
     public float getCurrentImpulse()
