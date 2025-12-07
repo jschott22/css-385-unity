@@ -17,7 +17,7 @@ public class PilotingSystem : MonoBehaviour
     public AudioSource endAudio;
 
     [Header("Speed Settings")]
-    private float maxImpulseForwardSpeed = 50f;
+    private float maxImpulseForwardSpeed = 25f;
 
     [Header("Rotation Settings")]
     private float rotationPower = 10f;

@@ -49,13 +49,29 @@ public class ControlScript : MonoBehaviour
                     {
                         current_inputs.Add(KeyCode.E);
                     }
+                    if (UnityEngine.Input.GetKey(KeyCode.F))
+                    {
+                        current_inputs.Add(KeyCode.F);
+                    }
+                    if (UnityEngine.Input.GetKey(KeyCode.Mouse0))
+                    {
+                        current_inputs.Add(KeyCode.Mouse0);
+                    }
+                    control_info.transform.GetChild(2).GetComponent<TMP_Text>().SetText("DECREASE - Q");
+                    control_info.transform.GetChild(3).GetComponent<TMP_Text>().SetText("INCREASE - E");
                     if (hit.collider.gameObject.name == "ITCollider")
                     {
                         control_info.transform.GetChild(1).GetComponent<TMP_Text>().SetText("IMPULSE THROTTLE");
                     }
-                    else
+                    else if (hit.collider.gameObject.name == "CHCollider")
                     {
                         control_info.transform.GetChild(1).GetComponent<TMP_Text>().SetText("COURSE HEADING");
+                    }
+                    else
+                    {
+                        control_info.transform.GetChild(1).GetComponent<TMP_Text>().SetText("TORPEDO");
+                        control_info.transform.GetChild(2).GetComponent<TMP_Text>().SetText("FIRE - LMB");
+                        control_info.transform.GetChild(3).GetComponent<TMP_Text>().SetText("ARM - F");
                     }
                     control_info.SetActive(true); //show UI indicator
                     target_control.handleInputs(current_inputs); //call when all inputs have been checked
